@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name:  Remove WordPress Bloat
- * Plugin URI:   https://www.ramarketingpr.com/
+ * Plugin URI:   https://www.mrcarllister.co.uk/
  * Description:  Remove lots of needless functionality, css and js from WordPress.
  * Version:      1.0.0
- * Author:       ramarketing
- * Author URI:   https://www.ramarketingpr.com/
+ * Author:       Carl Lister
+ * Author URI:   https://www.mrcarllister.co.uk/
  */
 
 
@@ -81,48 +81,48 @@ add_action( 'init', function () {
 
 
   // Close comments on the front-end
-  function ra_marketi__disable_comments_status() {
+  function ee_mph__disable_comments_status() {
       return false;
   }
-  add_filter('comments_open', 'ra_marketi__disable_comments_status', 20, 2);
-  add_filter('pings_open', 'ra_marketi__disable_comments_status', 20, 2);
+  add_filter('comments_open', 'ee_mph__disable_comments_status', 20, 2);
+  add_filter('pings_open', 'ee_mph__disable_comments_status', 20, 2);
 
 
   // Hide existing comments
-  function ra_marketi__disable_comments_hide_existing_comments($comments) {
+  function ee_mph__disable_comments_hide_existing_comments($comments) {
       $comments = array();
       return $comments;
   }
-  add_filter('comments_array', 'ra_marketi__disable_comments_hide_existing_comments', 10, 2);
+  add_filter('comments_array', 'ee_mph__disable_comments_hide_existing_comments', 10, 2);
   // Remove comments page in menu
-  function ra_marketi__disable_comments_admin_menu() {
+  function ee_mph__disable_comments_admin_menu() {
       remove_menu_page('edit-comments.php');
   }
-  add_action('admin_menu', 'ra_marketi__disable_comments_admin_menu');
+  add_action('admin_menu', 'ee_mph__disable_comments_admin_menu');
   // Redirect any user trying to access comments page
-  function ra_marketi__disable_comments_admin_menu_redirect() {
+  function ee_mph__disable_comments_admin_menu_redirect() {
       global $pagenow;
       if ($pagenow === 'edit-comments.php') {
           wp_redirect(admin_url()); exit;
       }
   }
-  add_action('admin_init', 'ra_marketi__disable_comments_admin_menu_redirect');
+  add_action('admin_init', 'ee_mph__disable_comments_admin_menu_redirect');
   // Remove comments metabox from dashboard
-  function ra_marketi__disable_comments_dashboard() {
+  function ee_mph__disable_comments_dashboard() {
       remove_meta_box('dashboard_recent_comments', 'dashboard', 'normal');
   }
-  add_action('admin_init', 'ra_marketi__disable_comments_dashboard');
+  add_action('admin_init', 'ee_mph__disable_comments_dashboard');
   // Remove comments links from admin bar
-  function ra_marketi__disable_comments_admin_bar() {
+  function ee_mph__disable_comments_admin_bar() {
       if (is_admin_bar_showing()) {
           remove_action('admin_bar_menu', 'wp_admin_bar_comments_menu', 60);
       }
   }
-  add_action('init', 'ra_marketi__disable_comments_admin_bar');
+  add_action('init', 'ee_mph__disable_comments_admin_bar');
 
 
   // Remove dashboard widgets
-  function ra_marketi__remove_dashboard_meta() {
+  function ee_mph__remove_dashboard_meta() {
       if ( ! current_user_can( 'manage_options' ) ) {
           remove_meta_box( 'dashboard_incoming_links', 'dashboard', 'normal' );
           remove_meta_box( 'dashboard_plugins', 'dashboard', 'normal' );
@@ -135,17 +135,17 @@ add_action( 'init', function () {
           remove_meta_box( 'dashboard_activity', 'dashboard', 'normal');
       }
   }
-  add_action( 'admin_init', 'ra_marketi__remove_dashboard_meta' ); 
+  add_action( 'admin_init', 'ee_mph__remove_dashboard_meta' ); 
 
   // Custom Admin footer
-  function ra_marketi___remove_footer_admin () {
-      echo '<span id="footer-thankyou">Bespoke development by <a href="https://www.ramarketingpr.com/" target="_blank">ramarketing</a></span>';
+  function ee_mph__remove_footer_admin () {
+      echo '<span id="footer-thankyou">Bespoke development by <a href="https://www.mrcarllister.co.uk/" target="_blank">Carl Lister</a></span>';
   }
-  add_filter( 'admin_footer_text', 'ra_marketi___remove_footer_admin' );
+  add_filter( 'admin_footer_text', 'ee_mph__remove_footer_admin' );
 
-  function ra_marketi___admin_bar_remove_logo() {
+  function ee_mph__admin_bar_remove_logo() {
       global $wp_admin_bar;
       $wp_admin_bar->remove_menu( 'wp-logo' );
   }
-  add_action( 'wp_before_admin_bar_render', 'ra_marketi___admin_bar_remove_logo', 0 );
+  add_action( 'wp_before_admin_bar_render', 'ee_mph__admin_bar_remove_logo', 0 );
 

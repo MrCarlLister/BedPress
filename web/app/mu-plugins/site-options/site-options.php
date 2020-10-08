@@ -1,18 +1,18 @@
 <?php
 /**
  * Plugin Name:  Default site options
- * Plugin URI:   https://www.ramarketingpr.com/
+ * Plugin URI:   https://www.mrcarllister.co.uk/
  * Description:  Register default site options using ACF PRO
  * Version:      1.0.0
- * Author:       ramarketing
- * Author URI:   https://www.ramarketingpr.com/
+ * Author:       Carl Lister
+ * Author URI:   https://www.mrcarllister.co.uk/
  */
 
 if ( class_exists('ACF') ) {
 
-    add_filter('acf/settings/save_json', 'ra_marketi___json_save_point');
+    add_filter('acf/settings/save_json', 'ee_mph__json_save_point');
 
-    function ra_marketi___json_save_point( $path ) {
+    function ee_mph__json_save_point( $path ) {
 
         // update path
         $path = plugin_dir_path( __FILE__ ) . '/acf-json';
@@ -23,9 +23,9 @@ if ( class_exists('ACF') ) {
 
     }
 
-    add_filter('acf/settings/load_json', 'ra_marketi___json_load_point');
+    add_filter('acf/settings/load_json', 'ee_mph__json_load_point');
 
-    function ra_marketi___json_load_point( $paths ) {
+    function ee_mph__json_load_point( $paths ) {
 
         // remove original path (optional)
         unset($paths[0]);
