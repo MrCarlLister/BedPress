@@ -8,7 +8,27 @@
  * Author URI:   https://www.mrcarllister.co.uk/
  */
 
+
+/**
+ * Get the user's roles
+ * @since 1.0.0
+ */
+function ee_mph__get_current_user_role() {
+    if( is_user_logged_in() ) {
+    $user = wp_get_current_user();
+    $roles = ( array ) $user->roles;
+    return $roles; // This returns an array
+    // Use this to return a single value
+    // return $roles[0];
+    } else {
+    return array();
+    }
+   }
+
 if ( class_exists('ACF') ) {
+
+    $SITE_OPTIONS_PATH = plugin_dir_path( __FILE__ );
+
 
     add_filter('acf/settings/save_json', 'ee_mph__json_save_point');
 
@@ -32,7 +52,7 @@ if ( class_exists('ACF') ) {
 
 
         // append path
-        $path = plugin_dir_path( __FILE__ ) . '/acf-json';
+        $paths[] = plugin_dir_path( __FILE__ ) . '/acf-json';
 
 
         // return
@@ -42,19 +62,20 @@ if ( class_exists('ACF') ) {
 
 
     
-    if( function_exists('acf_add_options_page') ) {
+   
 
-        acf_add_options_page(
-            array(
-                'page_title' => 'Options',
-                'menu_title' => 'Site Options',
-                'menu_slug' => 'site-options',
-                'capability' => 'edit_posts',
-                'icon_url' => 'dashicons-layout',
-                'position' => 2
+      
 
-            )
-        );
-
+    function ee__acf_chk_theme_option($option)
+    {
+        return get_field($option,'options');
     }
+
+    
+    include_once($SITE_OPTIONS_PATH.'options/theme-and-settings.php');
+    include_once($SITE_OPTIONS_PATH.'options/maps.php');
+    include_once($SITE_OPTIONS_PATH.'options/opening-times.php');
+
+    
+    
 }
