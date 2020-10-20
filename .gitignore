@@ -23,6 +23,7 @@ web/deploy-log.txt
 
 # Composer
 /vendor
+composer.phar
 
 # WP-CLI
 wp-cli.local.yml
