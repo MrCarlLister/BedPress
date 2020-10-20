@@ -82,7 +82,8 @@ foreach($commands AS $command){
     if($command == "git pull origin main"){
         $output .= "<span style=\"color: #6BE234;\">\$</span> <span style=\"color: #729FCF;\">{$command}\n</span>";
         $output .= htmlentities(trim($tmp)) . "\n";
-    }
+	}
+	
 
     $log  .= "\$ $command\n".trim($tmp)."\n";
 }
