@@ -8,12 +8,6 @@
  * Author URI:   https://www.mrcarllister.co.uk/
  */
 
-function dd($array)
-{
-    echo '<pre>';
-    print_r($array);
-    echo '</pre>';
-}
 
 function ee_mph__acf_get_array_of_blocknames()
 {
@@ -30,6 +24,7 @@ function ee_mph__acf_get_array_of_blocknames()
 	 * team all 		✅
 	 * related 			✅
 	 * articles 		✅
+	 * case studies 	✅
 	 * services 		✅
 	 * usp				✅
 	 * contact form		✅
@@ -44,6 +39,7 @@ function ee_mph__acf_get_array_of_blocknames()
 		'team',
 		'related',
 		'articles',
+		'case-studies',
 		'services',
 		'usp',
 		'contact-form',
