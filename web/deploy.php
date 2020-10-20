@@ -63,7 +63,7 @@ $commands = array(
     'export GITHUB_TOKEN='.$gh_token,
     'git remote set-url origin https://'.$gh_token.':x-oauth-basic@github.com/'. $repo . '.git',
 	'git pull origin main',
-	'composer install'
+	'php composer.phar install'
 	// 'git status',
 	// 'git submodule sync',
 	// 'git submodule update',
