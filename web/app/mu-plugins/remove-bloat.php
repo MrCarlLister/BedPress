@@ -8,6 +8,8 @@
  * Author URI:   https://www.mrcarllister.co.uk/
  */
 
+ // Add new constant that returns true if WooCommerce is active
+define( 'IS_WOOCOMMERCE_ACTIVE', class_exists( 'WooCommerce' ) );
 
 /**
  * REMOVE EMOJI SUPPORT
@@ -149,3 +151,39 @@ add_action( 'init', function () {
   }
   add_action( 'wp_before_admin_bar_render', 'ee_mph__admin_bar_remove_logo', 0 );
 
+
+if ( IS_WOOCOMMERCE_ACTIVE ) {
+
+  
+//
+// ─── ADD WOOCOMMERCE SUPPORT TO THEME ───────────────────────────────────────────
+//
+
+add_action( 'after_setup_theme', function() {
+    add_theme_support( 'woocommerce' );
+
+    
+} );
+
+
+//
+// ─── REMOVE WOOCOMMERCE STYLING ─────────────────────────────────────────────────
+//
+add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
+
+
+//
+// ─── ADD SUPPORT FOR WOO LIBRARIES ──────────────────────────────────────────────
+//
+add_theme_support( 'wc-product-gallery-slider' );
+add_theme_support( 'wc-product-gallery-zoom' );
+add_theme_support( 'wc-product-gallery-lightbox' );
+
+
+//
+// ─── REMOVE SHOP TITLE ──────────────────────────────────────────────────────────
+//
+add_filter( 'woocommerce_show_page_title', '__return_false' );
+
+
+}

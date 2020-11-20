@@ -5,21 +5,22 @@
  *
  * @return void
  */
-function ee_mph__acf_register_image_and_media_block() {
-	
-	if( ! function_exists( 'acf_register_block_type' ) )
+function ee_mph__acf_register_text_and_image_block()
+{
+
+	if (!function_exists('acf_register_block_type'))
 		return;
 
-	$block_name = 'text-and-media';
+	$block_name = 'text-and-image';
 	$render_template = ee_mph__acf_find_the_template_path($block_name);
 
-	acf_register_block_type( array(
+	acf_register_block_type(array(
 		'name'				=> $block_name,
-		'title'				=> __( 'Text and media', get_bloginfo('name') ),
-		'description'		=> __( 'Display a text block with media options' ),
+		'title'				=> __('Text and image', get_bloginfo('name')),
+		'description'		=> __('Display a text block with image options'),
 		'category'			=> 'common',
 		'icon'				=> 'playlist-video',
-		'keywords'			=> array( 'video', 'image', 'call to action', 'text' ),
+		'keywords'			=> array('video', 'image', 'call to action', 'text'),
 		// 'post_types'		=> array('posts','pages'),
 		'mode'				=> 'preview',
 		// 'align'				=> '',
@@ -38,7 +39,7 @@ function ee_mph__acf_register_image_and_media_block() {
 
 		// 	// customize alignment toolbar
 		// 	'align' => array( 'left', 'right', 'full' ),
-			
+
 		// 	// Show text alignment toolbar.
 		// 	'align_text' => true,
 
@@ -62,7 +63,5 @@ function ee_mph__acf_register_image_and_media_block() {
 		// )
 
 	));
-
-
 }
-add_action('acf/init', 'ee_mph__acf_register_image_and_media_block' );
+add_action('acf/init', 'ee_mph__acf_register_text_and_image_block');

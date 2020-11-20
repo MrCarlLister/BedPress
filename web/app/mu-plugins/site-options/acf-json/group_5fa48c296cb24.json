@@ -1,12 +1,12 @@
 {
-    "key": "group_5f7df3ddbf06e",
-    "title": "test",
+    "key": "group_5fa48c296cb24",
+    "title": "Meta - General",
     "fields": [
         {
-            "key": "field_5f7df3dfa9712",
-            "label": "text",
-            "name": "text",
-            "type": "text",
+            "key": "field_5fa48c305383a",
+            "label": "Excerpt",
+            "name": "excerpt",
+            "type": "textarea",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -15,11 +15,11 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
+            "default_value": "Short description of this services",
             "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "maxlength": "",
+            "rows": 4,
+            "new_lines": ""
         }
     ],
     "location": [
@@ -27,7 +27,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "post"
+                "value": "cpt-services"
             }
         ]
     ],
@@ -39,5 +39,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1602090041
+    "modified": 1604619352
 }

@@ -21,7 +21,7 @@ function ee_mph__acf_register_case_studies_block() {
 		'icon'				=> 'chart-pie',
 		'keywords'			=> array( 'Case studies','projects' ),
 		// 'post_types'		=> array('posts','pages'),
-		'mode'				=> 'preview',
+		'mode'				=> 'edit',
 		// 'align'				=> '',
 		// 'align_text'		=> 'left',
 		// 'align_content'		=> 'top',

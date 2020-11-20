@@ -5,28 +5,30 @@
  *
  * @return void
  */
-function ee_mph__acf_register_services_block() {
-	
-	if( ! function_exists( 'acf_register_block_type' ) )
+function ee_mph__acf_register_services_block()
+{
+
+	if (!function_exists('acf_register_block_type'))
 		return;
 
 	$block_name = 'services';
 	$render_template = ee_mph__acf_find_the_template_path($block_name);
 
-	acf_register_block_type( array(
+	acf_register_block_type(array(
 		'name'				=> $block_name,
-		'title'				=> __( 'Services', get_bloginfo('name') ),
-		'description'		=> __( 'Display all services' ),
+		'title'				=> __('Services', get_bloginfo('name')),
+		'description'		=> __('Display all services'),
 		'category'			=> 'common',
 		'icon'				=> 'admin-tools',
-		'keywords'			=> array( 'services' ),
+		'keywords'			=> array('services'),
 		// 'post_types'		=> array('posts','pages'),
 		'mode'				=> 'preview',
 		// 'align'				=> '',
 		// 'align_text'		=> 'left',
 		// 'align_content'		=> 'top',
+		// 'render_callback'   => 'ee_mph__services_callback',
 		'render_template'   => $render_template,
-		// 'enqueue_style'		=> ee_mph__acf_find_the_template_path($block_name,'css'),
+		// 'enqueue_style'		=> ee_mph__acf_find_the_template_path($block_name, 'css'),
 		// 'enqueue_script'		=> ee_mph__acf_find_the_template_path($block_name,'js'),
 		// 'enqueue_assets'	=> function(){
 		// 	wp_enqueue_style( 'block-testimonial', ee_mph__acf_find_the_template_path($block_name,'css') );
@@ -38,7 +40,7 @@ function ee_mph__acf_register_services_block() {
 
 		// 	// customize alignment toolbar
 		// 	'align' => array( 'left', 'right', 'full' ),
-			
+
 		// 	// Show text alignment toolbar.
 		// 	'align_text' => true,
 
@@ -62,7 +64,5 @@ function ee_mph__acf_register_services_block() {
 		// )
 
 	));
-
-
 }
-add_action('acf/init', 'ee_mph__acf_register_services_block' );
+add_action('acf/init', 'ee_mph__acf_register_services_block');

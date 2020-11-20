@@ -13,6 +13,8 @@ function ee_mph__acf_register_team_block() {
 	$block_name = 'team';
 	$render_template = ee_mph__acf_find_the_template_path($block_name);
 
+	// dd($render_template);
+
 	acf_register_block_type( array(
 		'name'				=> $block_name,
 		'title'				=> __( 'Team', get_bloginfo('name') ),

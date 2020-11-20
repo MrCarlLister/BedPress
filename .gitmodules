@@ -1,0 +1,3 @@
+[submodule "web/app/themes/BedPress-WP-Theme"]
+	path = web/app/themes/BedPress-WP-Theme
+	url = git@github.com:MrCarlLister/BedPress-WP-Theme.git
